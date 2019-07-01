@@ -1,0 +1,11 @@
+# Project dependencies
+node_modules
+.cache/
+
+# Build directory
+public/
+static/admin/*.bundle.*
+yarn-error.log
+yarn.lock
+.DS_Store
+.env
