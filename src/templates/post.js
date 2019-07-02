@@ -4,12 +4,12 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
-import { FaArrowLeft } from 'react-icons/fa';
 import { DiscussionEmbed } from 'disqus-react';
 import { BlogStyle } from '../components/styles';
 import Content, { HTMLContent } from '../components/content';
+import { FaArrowLeft, FaFacebookF, FaTwitter, FaLinkedin, FaReddit } from 'react-icons/fa';
 
-export const PostTemplate = ({ banner, title, contentComponent, content }) => {
+export const PostTemplate = ({ banner, title, deal, contentComponent, content }) => {
   const PostContent = contentComponent || Content;
   const disqusShortname = 'example';
   const disqusConfig = {
@@ -30,6 +30,13 @@ export const PostTemplate = ({ banner, title, contentComponent, content }) => {
     </div>
     <div className='wrapper'>
       <PostContent content={ content } />
+      <div className='shareBar'>
+        <a href='https://instagram.com/digitgap' name='instagram' title='Follow us on Instagram' target='_blank' rel='noopener noreferrer'><button className='shareBtn fb'><FaFacebookF className='ico' /> Share</button></a>
+        <a href='https://twitter.com/digitgap' name='twitter' title='Follow us on Twitter' target='_blank' rel='noopener noreferrer'><button className='shareBtn twitter'><FaTwitter className='ico' /> Share</button></a>
+        <a href='https://youtube.com/digitgap' name='youtube' title='Subscribe to us on YouTube' target='_blank' rel='noopener noreferrer'><button className='shareBtn in'><FaLinkedin className='ico' /> Share</button></a>
+        <a href='https://youtube.com/digitgap' name='youtube' title='Subscribe to us on YouTube' target='_blank' rel='noopener noreferrer'><button className='shareBtn reddit'><FaReddit className='ico' /> Share</button></a>
+        { deal ? <a href={ deal } name='deal' title='View the deal!' target='_blank' rel='noopener noreferrer'><button className='dealBtn'>View the deal!</button></a> : null }
+      </div>
       <DiscussionEmbed shortname={ disqusShortname } config={ disqusConfig } />
     </div>
   </BlogStyle>
@@ -45,7 +52,7 @@ const BlogPost = ({ data }) => {
   return(
   <Layout>
     <SEO title={ `${ post.frontmatter.title } |` || 'Opps..? |' } />
-    <PostTemplate banner={ post.frontmatter.cover.childImageSharp.fluid } title={ post.frontmatter.title } contentComponent={ HTMLContent } content={ post.html } />
+    <PostTemplate banner={ post.frontmatter.cover.childImageSharp.fluid } title={ post.frontmatter.title } deal={ post.frontmatter.deal } contentComponent={ HTMLContent } content={ post.html } />
   </Layout>
   );
 }
@@ -70,6 +77,7 @@ export const blogPostQuery = graphql`
           }
         }
         title
+        deal
       }
     }
   }

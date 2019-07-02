@@ -11,7 +11,7 @@ background: #2e2e2e;
 -o-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
 box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
 height: auto;
-padding: 9px 15px 9px 15px;
+padding: 8px 10px 8px 10px;
 z-index: 8;
 position: sticky;
 top: 0;
@@ -96,7 +96,7 @@ right: 0;
     transition: all 250ms ease-in-out;
 }
 & .nav a:hover {
-    border-left: 10px solid #11998e;
+    border-left: 8px solid #11998e;
     background: #e5e5e5;
 }
 @media screen and (min-width: 300px) and (max-width: 600px){
@@ -125,7 +125,26 @@ top: 80px;
     font-size: 30px;
     text-align: left;
 }
-& h1::before {
+& h2 {
+    border-bottom: 4px solid #11998e;
+    margin: 0 0 10px 0;
+    padding: 5px 5px 5px 5px;
+    color: #28282a;
+    font-size: 30px;
+    text-align: left;
+}
+& h1:before {
+    content: '';
+    background: #11998e;
+    height: 4px;
+    width: 35px;
+    transform: rotate(-120deg);
+    transform-origin: top right;
+    position: absolute;
+    top: 57px;
+    right: 4px;
+}
+& h2:before {
     content: '';
     background: #11998e;
     height: 4px;
@@ -329,7 +348,7 @@ height: auto;
     padding: 0 0 0 10px;
     z-index: 6;
     position: sticky;
-    top: 68px;
+    top: 66px;
     left: 0;
     right: 0;
 }
@@ -337,7 +356,7 @@ height: auto;
     content: '';
     border-style: solid;
     border-color: #38ef7d #38ef7d transparent transparent;
-    border-width: 40px;
+    border-width: 35px;
     position: absolute;
     top: auto;
     right: 0;
@@ -345,14 +364,14 @@ height: auto;
 & .ico {
     cursor: pointer;
     color: #fff;
-    font-size: 35px;
+    font-size: 30px;
     position: relative;
-    top: 3px;
+    top: 1px;
 }
 & .titleBar p {
     color: #fff;
     margin: 0 0 0 0;
-    font-size: 43px;
+    font-size: 40px;
     font-weight: bold;
 }
 & .wrapper {
@@ -365,14 +384,14 @@ height: auto;
 & .gatsby-resp-image-wrapper, .gatsby-resp-iframe-wrapper {
     margin: 10px 0 10px 0;
 }
-& h2, h3, h4, h5, h6 {
+& h1, h2, h3, h4, h5, h6 {
     color: #28282a;
     margin: 10px 0 10px 0;
     font-size: 33px;
 }
 & p {
     color: #28282a;
-    margin: 0 0 10px 0;
+    margin: 10px 0 10px 0;
     font-size: 18px;
 }
 & li {
@@ -380,24 +399,90 @@ height: auto;
     margin: 10px 0 10px 30px;
     font-size: 18px;
 }
-& blockquote, q, pre {
+& pre {
+    border-left: 10px solid #11998e;
+    background: #292d3e;
+    margin: 10px 0 10px 0;
+    padding: 5px 5px 5px 5px;
+    overflow: auto;
+}
+& blockquote, q {
     border-left: 10px solid #11998e;
     background: #e5e5e5;
     margin: 10px 0 10px 0;
     padding: 5px 5px 5px 5px;
+    overflow: auto;
 }
-& blockquote p, q p, pre code {
-    color: #28282a;
+& pre code {
+    color: #fff;
     margin: 0 0 0 0;
     font-size: 18px;
 }
+& blockquote p, q p {
+    color: #5d6977;
+    margin: 0 0 0 0;
+    font-size: 18px;
+}
+& .shareBar {
+    border-top: 2px solid #e5e5e5;
+    height: auto;
+    margin: 20px 0 0 0;
+    padding: 10px 0 10px 0;
+}
+& .shareBtn {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: #fff;
+    margin: 0 0 0 1vw;
+    padding: 10px 10px 10px 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+& .fb {
+    background: #3b5998 !important;
+}
+& .twitter {
+    background: #1da1f2 !important;
+}
+& .in {
+    background: #0077b5 !important;
+}
+& .reddit {
+    background: #ff4500 !important;
+}
+& .shareBtn .ico {
+    color: #fff;
+    font-size: 20px;
+    position: relative;
+    top: 3px;
+}
+& .dealBtn {
+    cursor: pointer;
+    float: right;
+    outline: none;
+    border: none;
+    background: #11998e;
+    color: #fff;
+    padding: 10px 10px 10px 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
 @media screen and (min-width: 300px) and (max-width: 600px){
     & .banner ul, .bannerImage {
-        height: 250px;
+        height: 200px;
+    }
+    & .shareBar .ico {
+        margin: 0 2vw 0 2vw;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 812px){
+    & .shareBar .ico {
+        margin: 0 1.5vw 0 1.5vw;
     }
 }
 @media (max-width: 991px){
-    & .banner::after {
+    & .titleBar::after {
         display: none;
     }
     & .wrapper {
@@ -504,5 +589,13 @@ text-align: center;
 }
 @media screen and (min-width: 300px) and (max-width: 600px){
     margin: 0 0 0 0;
+    & .ico {
+        margin: 0 2vw 0 2vw;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 812px){
+    & .ico {
+        margin: 0 1.5vw 0 1.5vw;
+    }
 }
 `;

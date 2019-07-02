@@ -20,4 +20,5 @@ collections:
       - { name: "instagram", label: "Instagram", widget: "string", required: false }
       - { name: "twitter", label: "Twitter", widget: "string", required: false }
       - { name: "title", label: "Title", widget: "string" }
+      - { name: "deal", label: "Link To Deal", widget: "string" }
       - { name: "Body", label: "body", widget: "markdown" }
