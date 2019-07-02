@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    author: 'Blog',
-    title: 'Blog',
+    author: 'Digitgap',
+    title: 'Digitgap',
     description:'',
-    siteUrl: 'https://www.blog.com'
+    siteUrl: 'https://www.digitgap.com'
   },
   plugins: [
     'gatsby-plugin-remove-trailing-slashes',
@@ -47,8 +47,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Blog',
-        short_name: 'Blog',
+        name: 'Digitgap',
+        short_name: 'Digitgap',
         start_url: '/',
         background_color: '#fff',
         theme_color: '#fff',

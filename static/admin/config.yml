@@ -8,10 +8,16 @@ collections:
     label: "Blog"
     folder: "src/pages/blog"
     create: true
+    editor:
+     preview: false
     slug: "{{slug}}"
     fields:
       - { name: "type", label: "Type", widget: "hidden", default: "blog" }
       - { name: "date", label: "Date", widget: "datetime" }
       - { name: "cover", label: "Cover", widget: "image" }
+      - { name: "authorimage", label: "Author Image", widget: "image" }
+      - { name: "authorname", label: "Author Name", widget: "string" }
+      - { name: "instagram", label: "Instagram", widget: "string", required: false }
+      - { name: "twitter", label: "Twitter", widget: "string", required: false }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "Body", label: "body", widget: "markdown" }
