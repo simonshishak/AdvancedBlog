@@ -7,3 +7,17 @@ html, body {
   background: #fff;
   font-family: 'Poppins', sans-serif;
 }
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px; 
+}
+::-webkit-scrollbar-track {
+  background: #2e2e2e;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #11998e, #38ef7d);
+}
+::selection {
+  background: #11998e;
+  color: #fff;
+}

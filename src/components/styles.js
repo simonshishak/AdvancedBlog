@@ -11,7 +11,7 @@ background: #2e2e2e;
 -o-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
 box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
 height: auto;
-padding: /* T */ 10px /* R */ 15px /* B */ 10px /* L */ 15px;
+padding: 9px 15px 9px 15px;
 z-index: 8;
 position: sticky;
 top: 0;
@@ -81,7 +81,7 @@ right: 0;
 & .nav:before {
     content: '';
     background: linear-gradient(to right, #11998e, #38ef7d);
-    height: 4px;
+    height: 8px;
     width: 100%;
     position: absolute;
     top: 0;
@@ -113,19 +113,28 @@ export const SidebarStyle = styled.div`
 float: right;
 height: auto;
 width: 23%;
-margin: 20px 100px 0 0;
+margin: 20px 50px 0 0;
 text-align: center;
 position: sticky;
 top: 80px;
-right: 100px;
 & h1 {
-    border-top: 4px solid #11998e;
-    background: #e5e5e5;
+    border-bottom: 4px solid #11998e;
     margin: 0 0 10px 0;
     padding: 5px 5px 5px 5px;
     color: #28282a;
     font-size: 30px;
     text-align: left;
+}
+& h1::before {
+    content: '';
+    background: #11998e;
+    height: 4px;
+    width: 35px;
+    transform: rotate(-120deg);
+    transform-origin: top right;
+    position: absolute;
+    top: 57px;
+    right: 4px;
 }
 & iframe {
     border: none;
@@ -139,6 +148,15 @@ right: 100px;
 @media (width: 1024px){
     display: none;
 }
+@media (width: 1280px){
+    margin: 20px 100px 0 0;
+}
+@media (min-width: 1440px){
+    margin: 20px 100px 0 0;
+}
+@media (min-width: 1600px){
+    margin: 20px 100px 0 0;
+}
 @media (min-width: 1920px){
     width: 20%;
     margin: 20px 200px 0 0;
@@ -150,14 +168,13 @@ right: 100px;
 ================================ */
 export const CardStyle = styled.div`
 height: auto;
-margin: 20px 415px 0 100px;
+margin: 20px 370px 0 50px;
 & .wrapper {
     height: auto;
     padding: 0 10px 0 10px;
 }
 & .card {
     display: block;
-    border-radius: 6px;
     height: auto;
     width: 100%;
     margin: 0 0 10px 0;
@@ -168,7 +185,6 @@ margin: 20px 415px 0 100px;
 }
 & .cardImage {
     float: left;
-    border-radius: 6px;
     height: 25%;
     width: 25%;
     margin: 0 10px 0 0;
@@ -229,12 +245,8 @@ margin: 20px 415px 0 100px;
     & .wrapper {
         padding: 0 0 0 0;
     }
-    & .card {
-        border-radius: 0;
-    }
     & .cardImage {
         float: none;
-        border-radius: 0;
         height: auto;
         width: 100%;
         margin: 0 0 0 0;
@@ -294,16 +306,6 @@ export const BlogStyle = styled.div`
 height: auto;
 & .banner {
     height: auto;
-    margin: 0 0 -80px 0;
-}
-& .banner::after {
-    content: '';
-    border-style: solid;
-    border-color: #2e2e2e #2e2e2e transparent transparent;
-    border-width: 50px;
-    position: absolute;
-    top: auto;
-    right: 0;
 }
 & .banner ul {
     background: rgba(0,0,0,0.5);
@@ -316,9 +318,45 @@ height: auto;
 & .bannerImage {
     height: 300px;
 }
+& .titleBar {
+    background: linear-gradient(to right, #11998e, #38ef7d);
+    -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
+    -moz-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
+    -ms-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
+    -o-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
+    margin: 0 0 20px 0;
+    padding: 0 0 0 10px;
+    z-index: 6;
+    position: sticky;
+    top: 68px;
+    left: 0;
+    right: 0;
+}
+& .titleBar::after {
+    content: '';
+    border-style: solid;
+    border-color: #38ef7d #38ef7d transparent transparent;
+    border-width: 40px;
+    position: absolute;
+    top: auto;
+    right: 0;
+}
+& .ico {
+    cursor: pointer;
+    color: #fff;
+    font-size: 35px;
+    position: relative;
+    top: 3px;
+}
+& .titleBar p {
+    color: #fff;
+    margin: 0 0 0 0;
+    font-size: 43px;
+    font-weight: bold;
+}
 & .wrapper {
     height: auto;
-    background: linear-gradient(rgba(255,255,255,0.75), rgb(255,255,255) 7.9rem);
     margin: 0 250px 0 250px;
     padding: 0 10px 0 10px;
     z-index: 3;
@@ -326,10 +364,6 @@ height: auto;
 }
 & .gatsby-resp-image-wrapper, .gatsby-resp-iframe-wrapper {
     margin: 10px 0 10px 0;
-}
-& h1 {
-    color: #28282a;
-    font-size: 40px;
 }
 & h2, h3, h4, h5, h6 {
     color: #28282a;
@@ -344,6 +378,17 @@ height: auto;
 & li {
     color: #28282a;
     margin: 10px 0 10px 30px;
+    font-size: 18px;
+}
+& blockquote, q, pre {
+    border-left: 10px solid #11998e;
+    background: #e5e5e5;
+    margin: 10px 0 10px 0;
+    padding: 5px 5px 5px 5px;
+}
+& blockquote p, q p, pre code {
+    color: #28282a;
+    margin: 0 0 0 0;
     font-size: 18px;
 }
 @media screen and (min-width: 300px) and (max-width: 600px){

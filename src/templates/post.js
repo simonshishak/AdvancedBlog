@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
+import { FaArrowLeft } from 'react-icons/fa';
 import { DiscussionEmbed } from 'disqus-react';
 import { BlogStyle } from '../components/styles';
 import Content, { HTMLContent } from '../components/content';
@@ -24,8 +25,10 @@ export const PostTemplate = ({ banner, title, contentComponent, content }) => {
       <ul />
       <Img fluid={ banner } alt={ title } className='bannerImage' />
     </div>
+    <div className='titleBar'>
+      <p><FaArrowLeft onClick={ () => window.history.back() } name='back' title='Go Back' className='ico' /> { title }</p>
+    </div>
     <div className='wrapper'>
-      <h1>{ title }</h1>
       <PostContent content={ content } />
       <DiscussionEmbed shortname={ disqusShortname } config={ disqusConfig } />
     </div>
