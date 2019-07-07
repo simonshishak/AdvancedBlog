@@ -4,15 +4,15 @@ backend:
 media_folder: static/images
 public_folder: /images
 collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "src/pages/blog"
+  - name: "deals"
+    label: "Deals"
+    folder: "src/pages/deals"
     create: true
     editor:
      preview: false
     slug: "{{slug}}"
     fields:
-      - { name: "type", label: "Type", widget: "hidden", default: "blog" }
+      - { name: "type", label: "Type", widget: "hidden", default: "deals" }
       - { name: "date", label: "Date", widget: "datetime" }
       - { name: "cover", label: "Cover", widget: "image" }
       - { name: "authorimage", label: "Author Image", widget: "image" }
@@ -21,4 +21,38 @@ collections:
       - { name: "twitter", label: "Twitter", widget: "string", required: false }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "deal", label: "Link To Deal", widget: "string" }
+      - { name: "Body", label: "body", widget: "markdown" }
+  - name: "howto"
+    label: "How To"
+    folder: "src/pages/howto"
+    create: true
+    editor:
+     preview: false
+    slug: "{{slug}}"
+    fields:
+      - { name: "type", label: "Type", widget: "hidden", default: "howto" }
+      - { name: "date", label: "Date", widget: "datetime" }
+      - { name: "cover", label: "Cover", widget: "image" }
+      - { name: "authorimage", label: "Author Image", widget: "image" }
+      - { name: "authorname", label: "Author Name", widget: "string" }
+      - { name: "instagram", label: "Instagram", widget: "string", required: false }
+      - { name: "twitter", label: "Twitter", widget: "string", required: false }
+      - { name: "title", label: "Title", widget: "string" }
+      - { name: "Body", label: "body", widget: "markdown" }
+  - name: "news"
+    label: "News"
+    folder: "src/pages/news"
+    create: true
+    editor:
+     preview: false
+    slug: "{{slug}}"
+    fields:
+      - { name: "type", label: "Type", widget: "hidden", default: "news" }
+      - { name: "date", label: "Date", widget: "datetime" }
+      - { name: "cover", label: "Cover", widget: "image" }
+      - { name: "authorimage", label: "Author Image", widget: "image" }
+      - { name: "authorname", label: "Author Name", widget: "string" }
+      - { name: "instagram", label: "Instagram", widget: "string", required: false }
+      - { name: "twitter", label: "Twitter", widget: "string", required: false }
+      - { name: "title", label: "Title", widget: "string" }
       - { name: "Body", label: "body", widget: "markdown" }

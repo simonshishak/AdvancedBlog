@@ -7,9 +7,9 @@ import Layout from '../components/layout';
 import { DiscussionEmbed } from 'disqus-react';
 import { BlogStyle } from '../components/styles';
 import Content, { HTMLContent } from '../components/content';
-import { FaArrowLeft, FaFacebookF, FaTwitter, FaLinkedin, FaReddit } from 'react-icons/fa';
+import { FaArrowLeft, FaFacebookF, FaTwitter } from 'react-icons/fa';
 
-export const PostTemplate = ({ banner, title, deal, contentComponent, content }) => {
+export const PostTemplate = ({ route, banner, title, deal, contentComponent, content }) => {
   const PostContent = contentComponent || Content;
   const disqusShortname = 'example';
   const disqusConfig = {
@@ -31,10 +31,8 @@ export const PostTemplate = ({ banner, title, deal, contentComponent, content })
     <div className='wrapper'>
       <PostContent content={ content } />
       <div className='shareBar'>
-        <a href='https://instagram.com/digitgap' name='instagram' title='Follow us on Instagram' target='_blank' rel='noopener noreferrer'><button className='shareBtn fb'><FaFacebookF className='ico' /> Share</button></a>
-        <a href='https://twitter.com/digitgap' name='twitter' title='Follow us on Twitter' target='_blank' rel='noopener noreferrer'><button className='shareBtn twitter'><FaTwitter className='ico' /> Share</button></a>
-        <a href='https://youtube.com/digitgap' name='youtube' title='Subscribe to us on YouTube' target='_blank' rel='noopener noreferrer'><button className='shareBtn in'><FaLinkedin className='ico' /> Share</button></a>
-        <a href='https://youtube.com/digitgap' name='youtube' title='Subscribe to us on YouTube' target='_blank' rel='noopener noreferrer'><button className='shareBtn reddit'><FaReddit className='ico' /> Share</button></a>
+        <a href={ `https://www.facebook.com/sharer.php?u=https://sitename.com${ route }&amp;t=${ title }` } name='facebook' title='Share To Facebook' target='_blank' rel='noopener noreferrer'><button className='shareBtn fb'><FaFacebookF className='ico' /> Share</button></a>
+        <a href={ `https://twitter.com/intent/tweet?url=https://sitename.com${ route }&amp;text=${ title }` } name='twitter' title='Share To Twitter' target='_blank' rel='noopener noreferrer'><button className='shareBtn twitter'><FaTwitter className='ico' /> Share</button></a>
         { deal ? <a href={ deal } name='deal' title='View the deal!' target='_blank' rel='noopener noreferrer'><button className='dealBtn'>View the deal!</button></a> : null }
       </div>
       <DiscussionEmbed shortname={ disqusShortname } config={ disqusConfig } />
@@ -52,7 +50,7 @@ const BlogPost = ({ data }) => {
   return(
   <Layout>
     <SEO title={ `${ post.frontmatter.title } |` || 'Opps..? |' } />
-    <PostTemplate banner={ post.frontmatter.cover.childImageSharp.fluid } title={ post.frontmatter.title } deal={ post.frontmatter.deal } contentComponent={ HTMLContent } content={ post.html } />
+    <PostTemplate route={ post.fields.slug } banner={ post.frontmatter.cover.childImageSharp.fluid } title={ post.frontmatter.title } deal={ post.frontmatter.deal } contentComponent={ HTMLContent } content={ post.html } />
   </Layout>
   );
 }
@@ -67,6 +65,9 @@ export const blogPostQuery = graphql`
     markdownRemark(id: { eq: $id }) {
       id
       html
+      fields {
+        slug
+      }
       frontmatter {
         date(formatString: "MM / DD / YY")
         cover {

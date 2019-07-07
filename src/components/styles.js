@@ -371,7 +371,7 @@ height: auto;
 & .titleBar p {
     color: #fff;
     margin: 0 0 0 0;
-    font-size: 40px;
+    font-size: 38px;
     font-weight: bold;
 }
 & .wrapper {
@@ -435,7 +435,7 @@ height: auto;
     border: none;
     color: #fff;
     margin: 0 0 0 1vw;
-    padding: 10px 10px 10px 10px;
+    padding: 8px 8px 8px 8px;
     font-size: 18px;
     font-weight: bold;
 }
@@ -444,12 +444,6 @@ height: auto;
 }
 & .twitter {
     background: #1da1f2 !important;
-}
-& .in {
-    background: #0077b5 !important;
-}
-& .reddit {
-    background: #ff4500 !important;
 }
 & .shareBtn .ico {
     color: #fff;
@@ -464,7 +458,7 @@ height: auto;
     border: none;
     background: #11998e;
     color: #fff;
-    padding: 10px 10px 10px 10px;
+    padding: 8px 8px 8px 8px;
     font-size: 18px;
     font-weight: bold;
 }
