@@ -11,7 +11,7 @@ background: #2e2e2e;
 -o-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
 box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
 height: auto;
-padding: 8px 10px 8px 10px;
+padding: 9px 10px 9px 10px;
 z-index: 8;
 position: sticky;
 top: 0;
@@ -27,7 +27,7 @@ right: 0;
     float: right;
     padding: 10px 0 10px 0;
     position: relative;
-    top: 3px;
+    top: 2px;
 }
 & .ico {
     cursor: pointer;
@@ -119,32 +119,13 @@ position: sticky;
 top: 80px;
 & h1 {
     border-bottom: 4px solid #11998e;
-    margin: 0 0 10px 0;
+    margin: 0 0 15px 0;
     padding: 5px 5px 5px 5px;
     color: #28282a;
     font-size: 30px;
     text-align: left;
 }
-& h2 {
-    border-bottom: 4px solid #11998e;
-    margin: 0 0 10px 0;
-    padding: 5px 5px 5px 5px;
-    color: #28282a;
-    font-size: 30px;
-    text-align: left;
-}
-& h1:before {
-    content: '';
-    background: #11998e;
-    height: 4px;
-    width: 35px;
-    transform: rotate(-120deg);
-    transform-origin: top right;
-    position: absolute;
-    top: 57px;
-    right: 4px;
-}
-& h2:before {
+& h1::before {
     content: '';
     background: #11998e;
     height: 4px;
@@ -158,8 +139,63 @@ top: 80px;
 & iframe {
     border: none;
     height: auto;
-    width: 90%;
+    width: 95%;
     margin: 0 0 5px 0;
+}
+& .newsLetter {
+    border-radius: 6px;
+    background: linear-gradient(to right, #11998e, #38ef7d);
+    height: auto;
+    width: auto;
+    margin: 0 0 10px 0;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+}
+& .newsLetter p {
+    color: #fff;
+    font-size: 18px;
+    text-align: left;
+}
+& .newsLetter p:first-child {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+& .input {
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    background: #fff;
+    -webkit-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
+    -moz-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
+    -ms-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
+    -o-box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.16);
+    color: #28282a;
+    height: 25px;
+    width: 90%;
+    margin: 10px 0 0 0;
+    padding: 10px 10px 10px 10px;
+    font-size: 16px;
+}
+& h2 {
+    background: #e5e5e5;
+    margin: 0 0 10px 0;
+    padding: 5px 5px 5px 5px;
+    color: #28282a;
+    font-size: 30px;
+    text-align: left;
+}
+& .ico {
+    cursor: pointer;
+    color: #28282a;
+    margin: 0 1vw 0 1vw;
+    font-size: 20px;
+    text-decoration: none;
+    vertical-align: middle;
+    transition: all 250ms ease-in-out;
+}
+& .ico:hover {
+    color: #11998e;
 }
 @media (max-width: 991px){
     display: none;

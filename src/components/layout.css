@@ -15,6 +15,7 @@ html, body {
   background: #2e2e2e;
 }
 ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
   background: linear-gradient(to bottom, #11998e, #38ef7d);
 }
 ::selection {
