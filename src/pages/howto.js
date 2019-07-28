@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Sidebar from '../components/sidebar';
-import { CardStyle } from '../components/styles';
+import { BannerStyle, CardStyle } from '../components/styles';
 
 const Howto = (props) => {
   const { data } = props;
@@ -14,6 +14,9 @@ const Howto = (props) => {
   return(
   <Layout>
     <SEO title='How To |' />
+    <BannerStyle>
+      <h1>How To</h1>
+    </BannerStyle>
     <Sidebar />
     <CardStyle>
       <div className='wrapper'>

@@ -1,7 +1,7 @@
 {
-  "author": "Digitgap",
-  "name": "digitgap",
-  "description": "",
+  "author": "@Bvlktech",
+  "name": "advancedblog",
+  "description": "Advanced starter blog using Netlify CMS.",
   "version": "1.0.0",
   "dependencies": {
     "disqus-react": "^1.0.5",

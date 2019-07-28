@@ -49,7 +49,7 @@ const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
   return(
   <Layout>
-    <SEO title={ `${ post.frontmatter.title } |` || 'Opps..? |' } />
+    <SEO title={ post.frontmatter.title ? `${ post.frontmatter.title } |` : '404: Not Found!' } />
     <PostTemplate route={ post.fields.slug } banner={ post.frontmatter.cover.childImageSharp.fluid } title={ post.frontmatter.title } deal={ post.frontmatter.deal } contentComponent={ HTMLContent } content={ post.html } />
   </Layout>
   );

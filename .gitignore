@@ -1,11 +1,9 @@
 # Project dependencies
-node_modules
-.cache/
-
-# Build directory
-public/
 static/admin/*.bundle.*
 yarn-error.log
+node_modules
 yarn.lock
 .DS_Store
+.cache/
+public/
 .env

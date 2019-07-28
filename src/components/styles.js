@@ -107,6 +107,22 @@ right: 0;
 `;
 
 /* ================================
+====>   Banner Style
+================================ */
+export const BannerStyle = styled.div`
+background: #e5e5e5;
+height: auto;
+padding: 40px 0 40px 30px;
+& h1 {
+    color: #2e2e2e;
+    font-size: 35px;
+}
+@media screen and (min-width: 300px) and (max-width: 600px){
+    padding: 30px 0 30px 10px;
+}
+`
+
+/* ================================
 ====>   Sidebar Style
 ================================ */
 export const SidebarStyle = styled.div`

@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    author: 'Digitgap',
-    title: 'Digitgap',
-    description:'',
-    siteUrl: 'https://www.digitgap.com'
+    author: '@Bvlktech',
+    title: 'AdvancedBlog',
+    description:'Advanced starter blog using Netlify CMS.',
+    siteUrl: 'https://www.advancedblog.netlify.com'
   },
   plugins: [
     'gatsby-plugin-remove-trailing-slashes',
@@ -47,8 +47,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Digitgap',
-        short_name: 'Digitgap',
+        name: 'AdvancedBlog',
+        short_name: 'AdvancedBlog',
         start_url: '/',
         background_color: '#fff',
         theme_color: '#fff',
