@@ -2,6 +2,8 @@
 
 <img src='./static/images/README.png' alt='README Image' />
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/92e73949-ba9b-4b42-b5ad-e2a5195f6386/deploy-status)](https://app.netlify.com/sites/advancedblog/deploys)
+
 **Note:** This starter uses [Gatsby v2](https://www.gatsbyjs.org/blog/2018-09-17-gatsby-v2/).
 
 This repo follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
