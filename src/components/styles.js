@@ -130,7 +130,7 @@ float: right;
 height: auto;
 width: 23%;
 margin: 20px 50px 0 0;
-text-align: center;
+text-align: left;
 position: sticky;
 top: 80px;
 & h1 {
@@ -226,11 +226,16 @@ top: 80px;
     margin: 20px 100px 0 0;
 }
 @media (min-width: 1600px){
-    margin: 20px 100px 0 0;
-}
-@media (min-width: 1920px){
     width: 20%;
     margin: 20px 200px 0 0;
+}
+@media (min-width: 1920px){
+    width: 17%;
+    margin: 20px 300px 0 0;
+}
+@media (min-width: 2100px){
+    width: 13%;
+    margin: 20px 400px 0 0;
 }
 `;
 
@@ -239,7 +244,7 @@ top: 80px;
 ================================ */
 export const CardStyle = styled.div`
 height: auto;
-margin: 20px 370px 0 50px;
+margin: 20px 360px 0 50px;
 & .wrapper {
     height: auto;
     padding: 0 10px 0 10px;
@@ -363,10 +368,13 @@ margin: 20px 370px 0 50px;
     margin: 20px 450px 0 100px;
 }
 @media (min-width: 1600px){
-    margin: 20px 500px 0 100px;
+    margin: 20px 550px 0 200px;
 }
 @media (min-width: 1920px){
-    margin: 20px 615px 0 200px;
+    margin: 20px 650px 0 300px;
+}
+@media (min-width: 2100px){
+    margin: 20px 800px 0 400px;
 }
 `;
 
