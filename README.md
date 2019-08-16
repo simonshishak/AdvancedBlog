@@ -10,8 +10,11 @@ This repo follows the [JAMstack architecture](https://jamstack.org) by using Git
 
 ## ChangeLog v1.1.1
 
-Removed: `styled-components` in favor of `SCSS`
-Updated: Styles due to removing `styled-components`
+# Removed: 
+  `styled-components` in favor of `SCSS`
+  
+# Updated: 
+  Styles due to removing `styled-components`
 
 ## Features
 
