@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Sidebar from '../components/sidebar';
-import { BannerStyle, CardStyle } from '../components/styles';
 
 const Deals = (props) => {
   const { data } = props;
@@ -14,11 +13,11 @@ const Deals = (props) => {
   return(
   <Layout>
     <SEO title='Deals |' />
-    <BannerStyle>
+    <div className='BannerStyle'>
       <h1>Latest Deals</h1>
-    </BannerStyle>
+    </div>
     <Sidebar />
-    <CardStyle>
+    <div className='CardStyle'>
       <div className='wrapper'>
         {posts.map(({ node: post }) => (<div className='card'>
           <Img fluid={ post.frontmatter.cover.childImageSharp.fluid } alt={ post.frontmatter.title } className='cardImage' />
@@ -31,7 +30,7 @@ const Deals = (props) => {
           </div>
         </div>))}
       </div>
-    </CardStyle>
+    </div>
   </Layout>
   );
 }

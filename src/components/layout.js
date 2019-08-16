@@ -3,7 +3,7 @@ import { FaBars } from 'react-icons/fa';
 import Topbar from './topbar';
 import Menu from './menu';
 import Footer from './footer';
-import './layout.css';
+import './styles/main.scss';
 
 const Layout = ({ children }) => {
   const [open, setMenu] = useState(false);

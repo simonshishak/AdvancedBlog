@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Sidebar from '../components/sidebar';
-import { CardStyle } from '../components/styles';
 
 const Index = (props) => {
   const { data } = props;
@@ -15,7 +14,7 @@ const Index = (props) => {
   <Layout>
     <SEO title=' ' />
     <Sidebar />
-    <CardStyle>
+    <div className='CardStyle'>
       <div className='wrapper'>
         {posts.map(({ node: post }) => (<div className='card'>
           <Img fluid={ post.frontmatter.cover.childImageSharp.fluid } alt={ post.frontmatter.title } className='cardImage' />
@@ -28,7 +27,7 @@ const Index = (props) => {
           </div>
         </div>))}
       </div>
-    </CardStyle>
+    </div>
   </Layout>
   );
 }

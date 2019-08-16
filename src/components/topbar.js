@@ -1,11 +1,10 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { TopbarStyle } from './styles';
 import { FaInstagram, FaTwitter, FaYoutube, FaSearch } from 'react-icons/fa';
 
 const Topbar = (props) => {
   return(
-  <TopbarStyle>
+  <div className='TopbarStyle'>
     <Link to='/' title='AdvancedBlog' className='logo'>AdvancedBlog</Link>
     <div className='right'>
       <a href='https://instagram.com' title='Follow us on Instagram' target='_blank' rel='noopener noreferrer'><FaInstagram className='ico instagram' /></a>
@@ -14,7 +13,7 @@ const Topbar = (props) => {
       <Link to='/search' name='search' title='Search'><FaSearch className='ico search' /></Link>
       { props.Menu }
     </div>
-  </TopbarStyle>
+  </div>
   );
 }
 export default Topbar;

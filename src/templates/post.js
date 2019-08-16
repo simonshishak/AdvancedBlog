@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import { DiscussionEmbed } from 'disqus-react';
-import { BlogStyle } from '../components/styles';
 import Content, { HTMLContent } from '../components/content';
 import { FaArrowLeft, FaFacebookF, FaTwitter } from 'react-icons/fa';
 
@@ -20,7 +19,7 @@ export const PostTemplate = ({ route, banner, title, deal, contentComponent, con
     shortname: 'example'
   };
   return(
-  <BlogStyle>
+  <div className='BlogStyle'>
     <div className='banner'>
       <ul />
       <Img fluid={ banner } alt={ title } className='bannerImage' />
@@ -37,7 +36,7 @@ export const PostTemplate = ({ route, banner, title, deal, contentComponent, con
       </div>
       <DiscussionEmbed shortname={ disqusShortname } config={ disqusConfig } />
     </div>
-  </BlogStyle>
+  </div>
   );
 }
 PostTemplate.propTypes = {

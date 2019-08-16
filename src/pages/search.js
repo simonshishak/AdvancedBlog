@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Sidebar from '../components/sidebar';
-import { SearchStyle, CardStyle } from '../components/styles';
 
 const Search = (props) => {
   const [search, setSearch] = useState('');
@@ -19,11 +18,11 @@ const Search = (props) => {
   return(
   <Layout>
     <SEO title='Search |' />
-    <SearchStyle>
+    <div className='SearchStyle'>
       <input type='text' value={ search } placeholder='What are you searching for?...' onChange={ handelSearch } className='search' />
-    </SearchStyle>
+    </div>
     <Sidebar />
-    <CardStyle>
+    <div className='CardStyle'>
       <div className='wrapper'>
         {filterSearch.map(({ node: post }) => (<div className='card'>
           <Img fluid={ post.frontmatter.cover.childImageSharp.fluid } alt={ post.frontmatter.title } className='cardImage' />
@@ -36,7 +35,7 @@ const Search = (props) => {
           </div>
         </div>))}
       </div>
-    </CardStyle>
+    </div>
   </Layout>
   );
 }

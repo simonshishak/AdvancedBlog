@@ -8,6 +8,11 @@
 
 This repo follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
+## ChangeLog v1.1.1
+
+Removed: `styled-components` in favor of `SCSS`
+Updated: Styles due to removing `styled-components`
+
 ## Features
 
 - A simple landing page with blog functionality built with Netlify CMS
@@ -47,7 +52,7 @@ You might encounter an error in Netlify when trying to build your site all you h
 npm install yarn && yarn && yarn build
 ```
 
-And then you go to the deployments tab and clear cache and deploy and you should receive no errors from this point if you do tho don't hesitate to make a PR or contact me on Instagram or twitter @bvlktech and ill look into this as ive been having same issue but 9 times out of 10 that cmd up there should fix this.
+And then you go to the deployments tab and clear cache and deploy and you should receive no errors from this point if you do tho don't hesitate to make a PR or contact me on Instagram or twitter @bvlktech and ill look into this as ive been having same issue but 9 times out of 10 that cmd up there^ should fix this.
 
 # CONTRIBUTING
 

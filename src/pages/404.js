@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import Sidebar from '../components/sidebar';
-import { ErrStyle, CardStyle } from '../components/styles';
 
 const NotFound = (props) => {
   const { data } = props;
@@ -14,12 +13,12 @@ const NotFound = (props) => {
   return(
   <Layout>
     <SEO title='404: NOT FOUND! |' />
-    <ErrStyle>
+    <div className='ErrStyle'>
       <h1>404 NOT FOUND!</h1>
       <p>You just hit a route that doesn't exists or was moved while we are working on this maybe you would enjoy these articles below...</p>
-    </ErrStyle>
+    </div>
     <Sidebar />
-    <CardStyle>
+    <div className='CardStyle'>
       <div className='wrapper'>
         {posts.map(({ node: post }) => (<div className='card'>
           <Img fluid={ post.frontmatter.cover.childImageSharp.fluid } alt={ post.frontmatter.title } className='cardImage' />
@@ -32,7 +31,7 @@ const NotFound = (props) => {
           </div>
         </div>))}
       </div>
-    </CardStyle>
+    </div>
   </Layout>
   );
 }
