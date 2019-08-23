@@ -8,7 +8,7 @@ const Sidebar = () => {
     <iframe src='https://www.youtube.com/embed/cYRG5rkmr-s' title='Latest Video' allowFullScreen></iframe>
     <div className='newsLetter'>
       <p><b>Stay up to date</b></p>
-      <p>Stay up to date on all things TheNodeist by Subscribeing to our news letter below.</p>
+      <p>Stay up to date on all things AdvancedBlog by Subscribeing to our news letter below.</p>
       <input type='text' placeholder='Name' className='input' maxLength='100' />
       <input type='email' placeholder='Email address' className='input' maxLength='100' />
     </div>
