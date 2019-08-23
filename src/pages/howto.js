@@ -18,8 +18,10 @@ const Howto = (props) => {
   return(
   <Layout>
     <SEO title='How To |' />
-    <div style={{ backgroundImage: `url('https://source.unsplash.com/pPzQP35zh4o')` }} className='BannerStyle'>
-      <h1>How To</h1>
+    <div style={{ backgroundImage: `url('https://source.unsplash.com/54hUU5pNSvo')` }} className='BannerStyle'>
+      <ul>
+        <h1>How To</h1>
+      </ul>
     </div>
     <div style={{ marginTop: '20px' }} className='PageWrapper'>
       <Sidebar />
