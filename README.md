@@ -56,6 +56,10 @@ This will install all the projects dependencies then it it will run the app in d
   <img src='https://cdn.rawgit.com/marionebl/create-react-app/9f62826/screencast-error.svg' width='600' alt='Build errors'>
 </p>
 
+## Debugging
+
+If you get an error in the console of Netlify saying something like `build script failed` or something like that if you go to the settings tab and go to the Build & Deploy section and under where it says `Build Scripts` all you have to do is put in there `npm i yarn && yarn && yarn build` and then go back to the console view and clear cache and deploy and you should see no error.
+
 ## Learn More
 
 You can learn more about GatsbyJS in the [GatsbyJS documentation](https://www.gatsbyjs.org/docs/).
