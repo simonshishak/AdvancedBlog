@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
@@ -8,28 +8,36 @@ import Layout from '../components/layout';
 import Sidebar from '../components/sidebar';
 
 const NotFound = (props) => {
-  const { data } = props;
-  const { edges: posts } = data.allMarkdownRemark;
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { edges: posts } = props.data.allMarkdownRemark;
+  useEffect(() => {
+    setData(posts)
+    setLoading(false)
+  }, []);
   return(
   <Layout>
     <SEO title='404: NOT FOUND! |' />
     <div className='ErrStyle'>
-      <h1>404 NOT FOUND!</h1>
-      <p>You just hit a route that doesn't exists or was moved while we are working on this maybe you would enjoy these articles below...</p>
+      <div className='banner'>
+        <ul>
+          <h1>404</h1>
+          <p>You can go back to our <Link to='/' title='TheNodeist Home'>home page</Link>, or you can explore some other post down below...</p>
+        </ul>
+      </div>
     </div>
-    <Sidebar />
-    <div className='CardStyle'>
-      <div className='wrapper'>
-        {posts.map(({ node: post }) => (<div className='card'>
-          <Img fluid={ post.frontmatter.cover.childImageSharp.fluid } alt={ post.frontmatter.title } className='cardImage' />
-          <div className='dis'>
-            <Link to={ post.fields.slug } name={ post.frontmatter.title } title={ post.frontmatter.title }>{ post.frontmatter.title }</Link>
-            <p>{ post.excerpt }</p>
-            <div className='tagBar'>
-              <span>{ post.fields.readingTime.text }</span>
+    <div style={{ marginTop: '20px' }} className='PageWrapper'>
+      <Sidebar />
+      <div className='CardStyle'>
+        {loading ? <h1>Loading Post...</h1> : data.map(({ node: post }) => (<Link to={ post.fields.slug } key={ post.frontmatter.title } title={ post.frontmatter.title }>
+          <div className='card'>
+            <Img fluid={ post.frontmatter.cover.childImageSharp.fluid } alt={ post.frontmatter.title } className='cardImage' />
+            <div className='dis'>
+              <h1>{ post.frontmatter.title }</h1>
+              <p>{ post.excerpt }</p>
             </div>
           </div>
-        </div>))}
+        </Link>))}
       </div>
     </div>
   </Layout>
@@ -46,12 +54,9 @@ export const errorQuery = graphql`
     allMarkdownRemark(limit: 1000, sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
-          excerpt(pruneLength: 100)
+          excerpt(pruneLength: 50)
           fields {
             slug
-            readingTime {
-              text
-            }
           }
           frontmatter {
             type

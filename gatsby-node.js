@@ -5,21 +5,15 @@ const { fmImagesToRelative } = require('gatsby-remark-relative-images');
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions;
   return graphql(`{
-    allMarkdownRemark(limit: 1000, sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(limit: 1000) {
       edges {
         node {
           id
-          excerpt(pruneLength: 100)
           fields {
             slug
-            readingTime {
-              text
-            }
           }
           frontmatter {
             type
-            date(formatString: "MM / DD / YY")
-            title
           }
         }
       }
@@ -49,8 +43,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const value = createFilePath({ node, getNode });
     createNodeField({
       name: 'slug',
-      node,
-      value
+      value,
+      node
     });
   }
 }

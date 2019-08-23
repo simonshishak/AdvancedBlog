@@ -29,10 +29,27 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-nprogress',
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        color: 'tomato',
-        showSpinner: false
+        name: 'AdvancedBlog',
+        short_name: 'AdvancedBlog',
+        start_url: '/',
+        background_color: '#fdfdfd',
+        theme_color: '#21232b',
+        display: 'standalone',
+        icon: 'static/images/flavor_wheel.jpg',
+        icons: [
+          {
+            src: 'static/images/flavor_wheel.jpg',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: 'static/images/flavor_wheel.jpg',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
       }
     },
     {
@@ -40,20 +57,29 @@ module.exports = {
       options: {
         trackingIds: [''],
         pluginConfig: {
-          head: false,
-          respectDNT: true
+          respectDNT: true,
+          head: false
         }
       }
     },
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: 'gatsby-plugin-prefetch-google-fonts',
       options: {
-        name: 'AdvancedBlog',
-        short_name: 'AdvancedBlog',
-        start_url: '/',
-        background_color: '#fff',
-        theme_color: '#fff',
-        display: 'standalone'
+        fonts: [
+          {
+            family: 'Poppins'
+          },
+          {
+            family: 'Oleo Script Swash Caps'
+          }
+        ]
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: '#2bd0c0',
+        showSpinner: false
       }
     },
     {
@@ -61,7 +87,6 @@ module.exports = {
       options: {
         plugins: [
           'gatsby-remark-responsive-iframe',
-          'gatsby-remark-reading-time',
           {
             resolve: 'gatsby-remark-relative-images',
             options: {
@@ -100,13 +125,13 @@ module.exports = {
           serialize: ({ query: { site, allMarkdownRemark } }) => {
             return allMarkdownRemark.edges.map(edge => {
               return Object.assign({}, edge.node.frontmatter, {
-                description: edge.node.excerpt,
-                date: edge.node.frontmatter.date,
-                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                custom_elements: [{ 'content:encoded': edge.node.html }],
                 guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                custom_elements: [{ 'content:encoded': edge.node.html }]
-              })
-            })
+                url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                date: edge.node.frontmatter.date,
+                description: edge.node.excerpt
+              });
+            });
           },
           query: `{
             allMarkdownRemark(limit: 1000, sort: { order: DESC, fields: [frontmatter___date] }) {
@@ -115,9 +140,6 @@ module.exports = {
                   excerpt(pruneLength: 100)
                   fields {
                     slug
-                    readingTime {
-                      text
-                    }
                   }
                   frontmatter {
                     type

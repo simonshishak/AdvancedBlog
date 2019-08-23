@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
@@ -8,27 +8,33 @@ import Layout from '../components/layout';
 import Sidebar from '../components/sidebar';
 
 const Deals = (props) => {
-  const { data } = props;
-  const { edges: posts } = data.allMarkdownRemark;
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { edges: posts } = props.data.allMarkdownRemark;
+  useEffect(() => {
+    setData(posts)
+    setLoading(false)
+  }, []);
   return(
   <Layout>
-    <SEO title='Deals |' />
-    <div className='BannerStyle'>
-      <h1>Latest Deals</h1>
+    <SEO title='Latest Deals |' />
+    <div style={{ backgroundImage: `url('https://source.unsplash.com/pPzQP35zh4o')` }} className='BannerStyle'>
+      <ul>
+        <h1>Latest Deals</h1>
+      </ul>
     </div>
-    <Sidebar />
-    <div className='CardStyle'>
-      <div className='wrapper'>
-        {posts.map(({ node: post }) => (<div className='card'>
-          <Img fluid={ post.frontmatter.cover.childImageSharp.fluid } alt={ post.frontmatter.title } className='cardImage' />
-          <div className='dis'>
-            <Link to={ post.fields.slug } name={ post.frontmatter.title } title={ post.frontmatter.title }>{ post.frontmatter.title }</Link>
-            <p>{ post.excerpt }</p>
-            <div className='tagBar'>
-              <span>{ post.fields.readingTime.text }</span>
+    <div className='PageWrapper'>
+      <Sidebar />
+      <div className='CardStyle'>
+        {loading ? <h1>Loading Post...</h1> : data.map(({ node: post }) => (<Link to={ post.fields.slug } key={ post.frontmatter.title } title={ post.frontmatter.title }>
+          <div className='card'>
+            <Img fluid={ post.frontmatter.cover.childImageSharp.fluid } alt={ post.frontmatter.title } className='cardImage' />
+            <div className='dis'>
+              <h1>{ post.frontmatter.title }</h1>
+              <p>{ post.excerpt }</p>
             </div>
           </div>
-        </div>))}
+        </Link>))}
       </div>
     </div>
   </Layout>
@@ -43,14 +49,12 @@ export default Deals;
 export const dealsQuery = graphql`
   query DealsQuery {
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] } filter: { frontmatter: { type: { eq: "deals" }}}) {
+      totalCount
       edges {
         node {
-          excerpt(pruneLength: 100)
+          excerpt(pruneLength: 50)
           fields {
             slug
-            readingTime {
-              text
-            }
           }
           frontmatter {
             type

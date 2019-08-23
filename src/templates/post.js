@@ -1,12 +1,11 @@
 import React from 'react';
-import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import SEO from '../components/seo';
 import Layout from '../components/layout';
 import { DiscussionEmbed } from 'disqus-react';
+import { FaFacebookF, FaTwitter } from 'react-icons/fa';
 import Content, { HTMLContent } from '../components/content';
-import { FaArrowLeft, FaFacebookF, FaTwitter } from 'react-icons/fa';
 
 export const PostTemplate = ({ route, banner, title, deal, contentComponent, content }) => {
   const PostContent = contentComponent || Content;
@@ -20,19 +19,15 @@ export const PostTemplate = ({ route, banner, title, deal, contentComponent, con
   };
   return(
   <div className='BlogStyle'>
-    <div className='banner'>
-      <ul />
-      <Img fluid={ banner } alt={ title } className='bannerImage' />
-    </div>
-    <div className='titleBar'>
-      <p><FaArrowLeft onClick={ () => window.history.back() } name='back' title='Go Back' className='ico' /> { title }</p>
-    </div>
     <div className='wrapper'>
+      <div className='titleBar'>
+        <p>{ title }</p>
+      </div>
       <PostContent content={ content } />
       <div className='shareBar'>
-        <a href={ `https://www.facebook.com/sharer.php?u=https://sitename.com${ route }&amp;t=${ title }` } name='facebook' title='Share To Facebook' target='_blank' rel='noopener noreferrer'><button className='shareBtn fb'><FaFacebookF className='ico' /> Share</button></a>
-        <a href={ `https://twitter.com/intent/tweet?url=https://sitename.com${ route }&amp;text=${ title }` } name='twitter' title='Share To Twitter' target='_blank' rel='noopener noreferrer'><button className='shareBtn twitter'><FaTwitter className='ico' /> Share</button></a>
-        { deal ? <a href={ deal } name='deal' title='View the deal!' target='_blank' rel='noopener noreferrer'><button className='dealBtn'>View the deal!</button></a> : null }
+        <a href={ `https://www.facebook.com/sharer.php?u=https://advancedblog.netlify.com${ route }&amp;t=${ title }` } title='Share To Facebook' target='_blank' rel='noopener noreferrer'><button className='shareBtn fb'><FaFacebookF className='ico' /> Share</button></a>
+        <a href={ `https://twitter.com/intent/tweet?url=https://advancedblog.netlify.com${ route }&amp;text=${ title }` } title='Share To Twitter' target='_blank' rel='noopener noreferrer'><button className='shareBtn twitter'><FaTwitter className='ico' /> Share</button></a>
+        {deal ? <a href={ deal } title='View the deal!' target='_blank' rel='noopener noreferrer'><button className='dealBtn'>View the deal!</button></a> : null}
       </div>
       <DiscussionEmbed shortname={ disqusShortname } config={ disqusConfig } />
     </div>
@@ -49,7 +44,7 @@ const BlogPost = ({ data }) => {
   return(
   <Layout>
     <SEO title={ post.frontmatter.title ? `${ post.frontmatter.title } |` : '404: Not Found!' } />
-    <PostTemplate route={ post.fields.slug } banner={ post.frontmatter.cover.childImageSharp.fluid } title={ post.frontmatter.title } deal={ post.frontmatter.deal } contentComponent={ HTMLContent } content={ post.html } />
+    <PostTemplate route={ post.fields.slug } date={ post.frontmatter.date } banner={ post.frontmatter.cover.childImageSharp.fluid } title={ post.frontmatter.title } deal={ post.frontmatter.deal } contentComponent={ HTMLContent } content={ post.html } />
   </Layout>
   );
 }

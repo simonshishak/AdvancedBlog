@@ -7,7 +7,7 @@ import './styles/main.scss';
 
 const Layout = ({ children }) => {
   const [open, setMenu] = useState(false);
-  const MenuBtn = open === true ? <FaBars onClick={ e => setMenu(false) } className='ico menu' /> : <FaBars onClick={ e => setMenu(true) } className='ico menu' />;
+  const MenuBtn = open === true ? <FaBars onClick={ e => setMenu(false) } className='ico' /> : <FaBars onClick={ e => setMenu(true) } className='ico' />;
   return(
   <main style={{ display: 'flex', flexDirection: 'column' }}>
     <div style={{ flex: 1, minHeight: '100vh' }}>

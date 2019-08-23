@@ -6,7 +6,7 @@ public_folder: /images
 collections:
   - name: "deals"
     label: "Deals"
-    folder: "src/pages/deals"
+    folder: "src/pages/blog/deals"
     create: true
     editor:
      preview: false
@@ -15,16 +15,12 @@ collections:
       - { name: "type", label: "Type", widget: "hidden", default: "deals" }
       - { name: "date", label: "Date", widget: "datetime" }
       - { name: "cover", label: "Cover", widget: "image" }
-      - { name: "authorimage", label: "Author Image", widget: "image" }
-      - { name: "authorname", label: "Author Name", widget: "string" }
-      - { name: "instagram", label: "Instagram", widget: "string", required: false }
-      - { name: "twitter", label: "Twitter", widget: "string", required: false }
       - { name: "title", label: "Title", widget: "string" }
       - { name: "deal", label: "Link To Deal", widget: "string" }
-      - { name: "Body", label: "body", widget: "markdown" }
+      - { name: "body", label: "Body", widget: "markdown" }
   - name: "howto"
     label: "How To"
-    folder: "src/pages/howto"
+    folder: "src/pages/blog/howto"
     create: true
     editor:
      preview: false
@@ -33,15 +29,11 @@ collections:
       - { name: "type", label: "Type", widget: "hidden", default: "howto" }
       - { name: "date", label: "Date", widget: "datetime" }
       - { name: "cover", label: "Cover", widget: "image" }
-      - { name: "authorimage", label: "Author Image", widget: "image" }
-      - { name: "authorname", label: "Author Name", widget: "string" }
-      - { name: "instagram", label: "Instagram", widget: "string", required: false }
-      - { name: "twitter", label: "Twitter", widget: "string", required: false }
       - { name: "title", label: "Title", widget: "string" }
-      - { name: "Body", label: "body", widget: "markdown" }
+      - { name: "body", label: "Body", widget: "markdown" }
   - name: "news"
     label: "News"
-    folder: "src/pages/news"
+    folder: "src/pages/blog/news"
     create: true
     editor:
      preview: false
@@ -50,9 +42,5 @@ collections:
       - { name: "type", label: "Type", widget: "hidden", default: "news" }
       - { name: "date", label: "Date", widget: "datetime" }
       - { name: "cover", label: "Cover", widget: "image" }
-      - { name: "authorimage", label: "Author Image", widget: "image" }
-      - { name: "authorname", label: "Author Name", widget: "string" }
-      - { name: "instagram", label: "Instagram", widget: "string", required: false }
-      - { name: "twitter", label: "Twitter", widget: "string", required: false }
       - { name: "title", label: "Title", widget: "string" }
-      - { name: "Body", label: "body", widget: "markdown" }
+      - { name: "body", label: "Body", widget: "markdown" }
