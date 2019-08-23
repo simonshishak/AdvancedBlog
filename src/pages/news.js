@@ -18,8 +18,10 @@ const News = (props) => {
   return(
   <Layout>
     <SEO title='Latest News |' />
-    <div style={{ backgroundImage: `url('https://source.unsplash.com/pPzQP35zh4o')` }} className='BannerStyle'>
-      <h1>Latest News</h1>
+    <div style={{ backgroundImage: `url('https://source.unsplash.com/iFSvn82XfGo')` }} className='BannerStyle'>
+      <ul>
+        <h1>Latest News</h1>
+      </ul>
     </div>
     <div style={{ marginTop: '20px' }} className='PageWrapper'>
       <Sidebar />
